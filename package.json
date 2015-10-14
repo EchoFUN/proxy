@@ -1,0 +1,27 @@
+{
+  "name": "proxy",
+  "version": "0.0.1",
+  "description": "前后端分离代理工具",
+  "main": "index.js",
+  "scripts": {
+    "dev": ""
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EchoFUN/proxy.git"
+  },
+  
+  "author": "XU Kai (xukai.ken@gmail.com)",
+  "license": "ISC",
+  
+  "bugs": {
+    "url": "https://github.com/EchoFUN/proxy/issues"
+  },
+  
+  "homepage": "https://github.com/EchoFUN/proxy#readme",
+  
+  "dependencies": {
+    
+  }
+}
