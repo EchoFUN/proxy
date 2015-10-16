@@ -1,11 +1,5 @@
-/**
- * 
- * 
- * 
- * 
- * 
- */
+#!/usr/bin/env node
 
-var httpProxy = require('http-proxy');
+'use strict';
 
-var proxy = httpProxy.create
+require('../app').run();
