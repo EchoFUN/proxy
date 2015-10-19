@@ -8,21 +8,28 @@
 
 var httpProxy = require('http-proxy');
 
-var urls = require('./urls');
+var urls = require('./urls'), header = require('./header');
 
 function run() {
-  var proxy = httpProxy.createProxyServer({ 
-    target : urls.site,
-    toProxy : true 
+  var proxy = httpProxy.createProxyServer({
+    target: urls.site
   });
 
-  proxy.on('proxyReq', function(proxyReq, req, resp, options) {
-    proxyReq.setHeader('Cookie', 'wmempid=26801; ssoid=21dc622a22a74c51b597ba41683de677; skmtutc=vZ+/5C2BXE9R13FSuMvPcstOoz5JSpYwokKu2PkIj+Guy50cEwZR7+pt0DYuCs30-1zRLt5AmL4+T2zEaA58FmchlwKg=; JSESSIONID=y5n7ltw0hczn1l8z7hsbg6rad; _ga=GA1.2.1839063757.1441533417; _g');
+  proxy.on('proxyReq', function (proxyReq, req, resp, options) {
     
-    // proxyReq.setHeader('Host', 'develop.waimai.honeycomb.test.sankuai.info');
+    for(var i in header) {
+      if (header.hasOwnProperty(i)) {
+        proxyReq.setHeader(i, header[i]);
+
+        req.headers[i] = header[i];
+      }
+    }
+    
   });
-  
-  proxy.on('proxyRes', function(proxyRes, req, resp) {
+
+  proxy.on('proxyRes', function (proxyRes, req, resp) {
+    
+    console.log('hello, world !');
     
   });
 
